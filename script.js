@@ -17,11 +17,7 @@ function renderCartItems() {
 }
 
 function calculateSubtotal(cartItems) {
-    let arrayOfPrice = []
-    for (let nameAndPrice of cartItems) {
-        arrayOfPrice.push(Number(nameAndPrice.price))
-    }
-    let subtotal = arrayOfPrice.reduce((currentAmount, previousAmount) => currentAmount + previousAmount, 0)
+    let subtotal = cartItems.reduce((current, item) => current + Number(item.price), 0)
     return subtotal.toFixed(2);
 }
 
@@ -37,7 +33,7 @@ function addFooterRow(className, title, amount) {
     let tableFooterRow = $('<tr/>', {class: className});
     tableFooterRow.appendTo('#table-footer');
     let name = $('<th/>', {text: title})
-    let number = $('<th/>', {text: amount, class: 'subtotal'})
+    let number = $('<th/>', {text: amount})
     name.appendTo(tableFooterRow);
     number.appendTo(tableFooterRow);
 }
