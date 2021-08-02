@@ -1,9 +1,7 @@
-let cartItems = [{name: "toy", price: 99}];
-let totalTaxSubtotal = [
-                        {subtotal: 90},
-                        {tax: 0.1},
-                        {total: 99},
-];
+let cartItems = [];
+let subtotal = ''
+let tax = '10%'
+let total = ''
 
 function renderCartItems() {
     $('#table-body').text('');
@@ -14,7 +12,6 @@ function renderCartItems() {
         let tableDataPrice = $('<td/>', {text: nameAndPrice.price, class: 'price'})
         tableDataName.appendTo(tableRow);
         tableDataPrice.appendTo(tableRow);
-        console.log(tableDataPrice)
 
     }
 }
@@ -27,8 +24,20 @@ function displayTaxSubtotalTotal() {
     tableFooterRowSubtotal.appendTo('#table-footer');
     tableFooterRowTax.appendTo('#table-footer');
     tableFooterRowTotal.appendTo('#table-footer');
-
+    let subtotalName = $('<th/>', {text: 'Subtotal', class: 'subtotal'})
+    let subtotalNumber = $('<th/>', {text: subtotal, class: 'subtotal'})
+    subtotalName.appendTo(tableFooterRowSubtotal);
+    subtotalNumber.appendTo(tableFooterRowSubtotal);
+    let taxName = $('<th/>', {text: 'Tax', class: 'tax'})
+    let taxNumber = $('<th/>', {text: tax, class: 'tax'})
+    taxName.appendTo(tableFooterRowTax);
+    taxNumber.appendTo(tableFooterRowTax);
+    let totalName = $('<th/>', {text: 'Total', class: 'total'})
+    let totalNumber = $('<th/>', {text: total, class: 'total'})
+    totalName.appendTo(tableFooterRowTotal);
+    totalNumber.appendTo(tableFooterRowTotal);
 }
+
 
 
 let items = $('.add-to-cart')
