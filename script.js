@@ -34,8 +34,10 @@ function removeCartItem(product) {
 
 let items = $('.add-to-cart')
 
-function addProduct() {
-    console.log("Продукт добавлен")
+function addProduct(event) {
+    let name = $(event.target).next().html()
+    let price = $(event.target).next().next().html()
+    console.log(`продукт ${name} ${price} добавлен`)
 }
 
 items.on('click', addProduct);
