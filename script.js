@@ -21,8 +21,8 @@ function calculateSubtotal(cartItems) {
     return subtotal.toFixed(2);
 }
 
-function calculateTax(cartItems) {
-    let tax = cartItems.reduce((current, item) => current + Number(item.price), 0) * 0.1
+function calculateTax() {
+    let tax = calculateSubtotal(cartItems) * 0.1
     return tax.toFixed(2)
 }
 
