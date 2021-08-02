@@ -18,24 +18,18 @@ function renderCartItems() {
 
 function displayTaxSubtotalTotal() {
     $('#table-footer').text('');
-    let tableFooterRowSubtotal = $('<tr/>', {class: 'table-footer-row-subtotal'});
-    let tableFooterRowTax = $('<tr/>', {class: 'table-footer-row-tax'});
-    let tableFooterRowTotal = $('<tr/>', {class: 'table-footer-row-total'});
-    tableFooterRowSubtotal.appendTo('#table-footer');
-    tableFooterRowTax.appendTo('#table-footer');
-    tableFooterRowTotal.appendTo('#table-footer');
-    let subtotalName = $('<th/>', {text: 'Subtotal', class: 'subtotal'})
-    let subtotalNumber = $('<th/>', {text: subtotal, class: 'subtotal'})
-    subtotalName.appendTo(tableFooterRowSubtotal);
-    subtotalNumber.appendTo(tableFooterRowSubtotal);
-    let taxName = $('<th/>', {text: 'Tax', class: 'tax'})
-    let taxNumber = $('<th/>', {text: tax, class: 'tax'})
-    taxName.appendTo(tableFooterRowTax);
-    taxNumber.appendTo(tableFooterRowTax);
-    let totalName = $('<th/>', {text: 'Total', class: 'total'})
-    let totalNumber = $('<th/>', {text: total, class: 'total'})
-    totalName.appendTo(tableFooterRowTotal);
-    totalNumber.appendTo(tableFooterRowTotal);
+    addFooterRow('table-footer-row-subtotal', 'Subtotal', subtotal)
+    addFooterRow('table-footer-row-tax', 'Tax', tax)
+    addFooterRow('table-footer-row-total', 'Total', total)
+}
+
+function addFooterRow(className, title, amount) {
+    let tableFooterRow = $('<tr/>', {class: className});
+    tableFooterRow.appendTo('#table-footer');
+    let name = $('<th/>', {text: title})
+    let number = $('<th/>', {text: amount, class: 'subtotal'})
+    name.appendTo(tableFooterRow);
+    number.appendTo(tableFooterRow);
 }
 
 
