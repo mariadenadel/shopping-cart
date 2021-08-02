@@ -32,13 +32,10 @@ function removeCartItem(product) {
 }
 
 
+let items = $('.add-to-cart')
 
+function addProduct() {
+    console.log("Продукт добавлен")
+}
 
-
-// let items = $('button')
-
-// function addToShopingList() {
-//     items.next().clone().appendTo('.cart');
-// }
-
-// items.on('click', addToShopingList);
+items.on('click', addProduct);
