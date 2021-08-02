@@ -21,11 +21,16 @@ function calculateSubtotal(cartItems) {
     return subtotal.toFixed(2);
 }
 
+function calculateTax(cartItems) {
+    let tax = cartItems.reduce((current, item) => current + Number(item.price), 0) * 0.1
+    return tax.toFixed(2)
+}
+
 
 function displayTaxSubtotalTotal() {
     $('#table-footer').text('');
     addFooterRow('table-footer-row-subtotal', 'Subtotal', calculateSubtotal(cartItems))
-    addFooterRow('table-footer-row-tax', 'Tax', tax)
+    addFooterRow('table-footer-row-tax', 'Tax 10%', calculateTax(cartItems))
     addFooterRow('table-footer-row-total', 'Total', total)
 }
 
