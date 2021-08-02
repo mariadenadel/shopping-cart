@@ -1,11 +1,5 @@
-let cartItems = [
-    {name: 'Toy', price: 99},
-    {name: 'Chicken', price: 199},
-    {name: 'Rooster', price: 9},
-    {name: 'Cat', price: 19},
-    {name: 'Dog', price: 129},
+let cartItems = [];
 
-];
 function renderCartItems() {
     $('#table-body').text('');
     for (let nameAndPrice of cartItems) {
@@ -19,25 +13,14 @@ function renderCartItems() {
     }
 }
 
-renderCartItems()
-
-function addCartItem(product) {
-    products.push(product)
-    renderCartItems()
-}
-
-function removeCartItem(product) {
-    products.delete() // magic
-    renderCartItems()
-}
-
-
 let items = $('.add-to-cart')
 
 function addProduct(event) {
-    let name = $(event.target).next().html()
-    let price = $(event.target).next().next().html()
-    console.log(`продукт ${name} ${price} добавлен`)
+    let item = {}
+    item.name = $(event.target).next().html()
+    item.price = $(event.target).next().next().html()
+    cartItems.push(item)
+    renderCartItems()
 }
 
 items.on('click', addProduct);
