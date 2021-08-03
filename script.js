@@ -5,16 +5,26 @@ let total = ''
 
 function renderCartItems() {
     $('#table-body').text('');
+
     for (let nameAndPrice of cartItems) {
         let tableRow = $('<tr/>', {class: 'table-row'});
+        tableRow.attr('data-index', '5');
         tableRow.appendTo('#table-body');
+
         let tableDataName = $('<td/>', {text: nameAndPrice.name, class: 'name'})
         let tableDataPrice = $('<td/>', {text: nameAndPrice.price, class: 'price'})
-        tableDataName.appendTo(tableRow);
-        tableDataPrice.appendTo(tableRow);
+        let tableDataDelete = $('<a/>', {class: 'delete-item-button', href: '#'})
+        let tableDataDeleteImage = $('<img/>', {class: 'delete-item-button-image', src: 'images/trash.svg'})
 
+        tableDataDeleteImage.appendTo(tableDataDelete);
+        tableDataName.appendTo(tableRow);
+
+        tableDataPrice.appendTo(tableRow);
+        tableDataDelete.appendTo(tableRow);
+        console.log(nameAndPrice)
     }
 }
+
 
 function calculateSubtotal(cartItems) {
     let subtotal = cartItems.reduce((current, item) => current + Number(item.price), 0)

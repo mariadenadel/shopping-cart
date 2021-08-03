@@ -4,6 +4,6 @@
 4) добавит удаление предидущего Shopping List
 ____
 
-5) добаить удаление продукта
+5) добаить удаление продукта, <a class="delete-cart-item-button" data-index="5">-</a>
 6) добавить <input type="number"> для продукта
 7)
