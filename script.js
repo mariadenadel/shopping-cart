@@ -12,7 +12,7 @@ let total = ''
 
 function renderItems() {
     for (let idNamePriceImage of items) {
-        let div = $('<div/>', {class: 'col col-xs-12 col-md-6 col-lg-4'})
+        let div = $('<div/>', {class: 'col col-xs-12 col-md-6 col-lg-4'}).attr('data-id', idNamePriceImage.id)
         div.appendTo('.row')
 
         let imageDiv = $('<div/>')
@@ -20,8 +20,6 @@ function renderItems() {
         let addToCartButton = $('<button/>', {text: 'Add To Card', class: 'btn btn-primary add-to-cart', type: 'button'})
         let nameOfProduct = $('<h2/>', {text: idNamePriceImage.name})
         let priceOfProduct = $('<p/>', {text: idNamePriceImage.price})
-
-
 
         imageDiv.appendTo(div)
         image.appendTo(imageDiv)
@@ -118,8 +116,8 @@ function deleteProduct(event) {
 }
 
 // function cartItemsGroupedByItem() {
-//     var result = {}
-//     for id of cartItems
+    // let result = {}
+    // for id of cartItems
 //         if result[id]
 //             result[id] += 1
 //         else
