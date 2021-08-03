@@ -2,7 +2,8 @@
 2) при нажатии на кнопку add to cart выводить в консоле сообщение "продукт ${name} ${price} добавлен"
 3) при нажатии на кнопку add to cart вызывать функцию addItemsInShoppingList с [{name: name, price: price}]
 4) добавит удаление предидущего Shopping List
-5) total: 10.00
-   tax rate: 10%
-   subtotal = total / (100 + tax rate) * 100
-   tax = total / (100 + tax rate) * tax rate
+____
+
+5) добаить удаление продукта
+6) добавить <input type="number"> для продукта
+7)
