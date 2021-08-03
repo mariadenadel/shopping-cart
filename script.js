@@ -100,6 +100,7 @@ function addProduct(event) {
     let item = {}
     item.name = $(event.target).next().html()
     item.price = $(event.target).next().next().html()
+    item.id = $(event.target).parent().data('id')
     cartItems.push(item)
     renderCartItems()
 }
@@ -117,7 +118,7 @@ function deleteProduct(event) {
 
 // function cartItemsGroupedByItem() {
     // let result = {}
-    // for id of cartItems
+    // for (id of cartItems)
 //         if result[id]
 //             result[id] += 1
 //         else
