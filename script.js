@@ -6,9 +6,9 @@ let total = ''
 function renderCartItems() {
     $('#table-body').text('');
 
-    for (let nameAndPrice of cartItems) {
+    for (let [index, nameAndPrice] of cartItems.entries()) {
         let tableRow = $('<tr/>', {class: 'table-row'});
-        tableRow.attr('data-index', '5');
+        tableRow.attr('data-index', index);
         tableRow.appendTo('#table-body');
 
         let tableDataName = $('<td/>', {text: nameAndPrice.name, class: 'name'})
@@ -21,7 +21,7 @@ function renderCartItems() {
 
         tableDataPrice.appendTo(tableRow);
         tableDataDelete.appendTo(tableRow);
-        console.log(nameAndPrice)
+
     }
 }
 
