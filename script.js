@@ -34,19 +34,19 @@ renderItems()
 function renderCartItems() {
     $('#table-body').text('');
 
-    for (let [index, nameAndPrice] of cartItems.entries()) {
+    for (let countAndItem of cartItemsGroupedByItem()) {
         let tableRow = $('<tr/>', {class: 'table-row'});
-        tableRow.attr('data-index', index);
+        tableRow.attr('data-item-id', countAndItem.item.id);
         tableRow.appendTo('#table-body');
 
-        let tableDataName = $('<td/>', {text: nameAndPrice.name, class: 'name'})
-        let tableDataPrice = $('<td/>', {text: nameAndPrice.price, class: 'price'})
+        let tableDataName = $('<td/>', {text: countAndItem.item.name, class: 'name'})
+        let tableDataPrice = $('<td/>', {text: countAndItem.item.price, class: 'price'})
 
         let tableDataDelete = $('<a/>', {class: 'delete-item-button'})
         let tableDataDeleteImage = $('<img/>', {class: 'delete-item-button-image', src: 'images/trash.svg'})
 
         let tableDataAmount = $('<td/>')
-        let dataAmount = $('<input/>', {type: 'number', value: '1', min: '1'})
+        let dataAmount = $('<input/>', {class: 'input-amount', type: 'number', value: countAndItem.count, min: '1'})
 
 
         tableDataDeleteImage.appendTo(tableDataDelete);
@@ -111,22 +111,25 @@ item.on('click', addProduct);
 $(document).on('click', '.delete-item-button', deleteProduct)
 
 function deleteProduct(event) {
-    let index = $(event.target).parent().parent().data('index')
-    cartItems.splice(index, 1)
+    let itemId = $(event.target).parent().parent().data('itemId')
+    cartItems = _.filter(cartItems, (item) => item.id != itemId)
     renderCartItems()
 }
 
-// function cartItemsGroupedByItem() {
-    // let result = {}
-    // for (id of cartItems)
-//         if result[id]
-//             result[id] += 1
-//         else
-//             result[id] = 0
 
-//     return result
-//     return {
-//         3: 1,
-//     }
-//     [{id: 1, count: 1}]
-// }
+// $(document).on('input', '.input-amount', cartItemsGroupedByItem)
+
+
+function cartItemsGroupedByItem() {
+    let groupedItems = _.groupBy(cartItems, (item) => item.id)
+    return _.map(groupedItems, function(group) { return { item: group[0], count: group.length } })
+
+
+    // return [
+    //     {
+    //         item: { id: 1, name: "Cat", price: 9.99 },
+//             count: 2,
+    //     },
+    // ]
+    // return result
+}
