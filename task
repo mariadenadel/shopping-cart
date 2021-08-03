@@ -2,3 +2,8 @@
 2) при нажатии на кнопку add to cart выводить в консоле сообщение "продукт ${name} ${price} добавлен"
 3) при нажатии на кнопку add to cart вызывать функцию addItemsInShoppingList с [{name: name, price: price}]
 4) добавит удаление предидущего Shopping List
+____
+
+5) добаить удаление продукта, <a class="delete-cart-item-button" data-index="5">-</a>
+6) добавить <input type="number"> для продукта
+7)
