@@ -13,7 +13,7 @@ function renderCartItems() {
 
         let tableDataName = $('<td/>', {text: nameAndPrice.name, class: 'name'})
         let tableDataPrice = $('<td/>', {text: nameAndPrice.price, class: 'price'})
-        let tableDataDelete = $('<a/>', {class: 'delete-item-button', href: '#'})
+        let tableDataDelete = $('<a/>', {class: 'delete-item-button'})
         let tableDataDeleteImage = $('<img/>', {class: 'delete-item-button-image', src: 'images/trash.svg'})
 
         tableDataDeleteImage.appendTo(tableDataDelete);
@@ -70,3 +70,10 @@ function addProduct(event) {
 }
 
 items.on('click', addProduct);
+
+
+$(document).on('click', '.delete-item-button', deleteProduct)
+
+function deleteProduct() {
+    console.log("Hello")
+}
