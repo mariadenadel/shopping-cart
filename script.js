@@ -13,14 +13,22 @@ function renderCartItems() {
 
         let tableDataName = $('<td/>', {text: nameAndPrice.name, class: 'name'})
         let tableDataPrice = $('<td/>', {text: nameAndPrice.price, class: 'price'})
+
         let tableDataDelete = $('<a/>', {class: 'delete-item-button'})
         let tableDataDeleteImage = $('<img/>', {class: 'delete-item-button-image', src: 'images/trash.svg'})
+
+        let tableDataAmount = $('<td/>')
+        let dataAmount = $('<input/>', {type: 'number', value: '1', min: '1'})
+
 
         tableDataDeleteImage.appendTo(tableDataDelete);
         tableDataName.appendTo(tableRow);
 
         tableDataPrice.appendTo(tableRow);
         tableDataDelete.appendTo(tableRow);
+
+        dataAmount.appendTo(tableDataAmount)
+        tableDataAmount.appendTo(tableRow);
 
     }
     displayTaxSubtotalTotal()
