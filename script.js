@@ -23,6 +23,7 @@ function renderCartItems() {
         tableDataDelete.appendTo(tableRow);
 
     }
+    displayTaxSubtotalTotal()
 }
 
 
@@ -66,7 +67,6 @@ function addProduct(event) {
     item.price = $(event.target).next().next().html()
     cartItems.push(item)
     renderCartItems()
-    displayTaxSubtotalTotal()
 }
 
 items.on('click', addProduct);
@@ -75,13 +75,7 @@ items.on('click', addProduct);
 $(document).on('click', '.delete-item-button', deleteProduct)
 
 function deleteProduct(event) {
-    let product = $(event.target).parent().parent()
-    product.remove()
     let index = $(event.target).parent().parent().data('index')
-
     cartItems.splice(index, 1)
-    console.log(cartItems)
-
     renderCartItems()
-    displayTaxSubtotalTotal()
 }
