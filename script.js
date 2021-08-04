@@ -124,22 +124,19 @@ function cartItemsGroupedByItem() {
 }
 
 
-// let shipping = $('#shipping-info')
-
-// function showShippingInfo() {
-//     alert('Hello')
-// }
-
-// shipping.on('click', showShippingInfo)
-
-
-
-
 $(document).ready(function (){
-    $(".open").click(function (){
-        $(".pop-outer").fadeIn("slow");
+    $('.open').click(function (){
+        $('.pop-outer').fadeIn('slow');
     });
-    $(".close").click(function (){
-        $(".pop-outer").fadeOut("slow");
+    $('.close').click(function (){
+        $('.pop-outer').fadeOut('slow');
     });
 });
+
+
+$(document).on('click', '#submit-shipping-info', submitShippingInfo)
+
+
+function submitShippingInfo() {
+    alert('The order has been sent! You can close the form.')
+}
