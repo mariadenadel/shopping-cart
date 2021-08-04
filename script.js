@@ -60,6 +60,7 @@ function renderCartItems() {
 
     }
     displayTaxSubtotalTotal()
+
 }
 
 function calculateSubtotal(cartItems) {
@@ -117,19 +118,28 @@ function deleteProduct(event) {
 }
 
 
-// $(document).on('input', '.input-amount', cartItemsGroupedByItem)
-
-
 function cartItemsGroupedByItem() {
     let groupedItems = _.groupBy(cartItems, (item) => item.id)
     return _.map(groupedItems, function(group) { return { item: group[0], count: group.length } })
-
-
-    // return [
-    //     {
-    //         item: { id: 1, name: "Cat", price: 9.99 },
-//             count: 2,
-    //     },
-    // ]
-    // return result
 }
+
+
+// let shipping = $('#shipping-info')
+
+// function showShippingInfo() {
+//     alert('Hello')
+// }
+
+// shipping.on('click', showShippingInfo)
+
+
+
+
+$(document).ready(function (){
+    $(".open").click(function (){
+        $(".pop-outer").fadeIn("slow");
+    });
+    $(".close").click(function (){
+        $(".pop-outer").fadeOut("slow");
+    });
+});
